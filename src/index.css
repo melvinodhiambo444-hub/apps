@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #08080a;
+    color: #e5e5e5;
+  }
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-courier {
+  font-family: 'Courier Prime', Courier, monospace;
+}
+
+/* Subtle cinematic vignette and horror scanline texture */
+.vignette-overlay {
+  background: radial-gradient(circle at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+.subtle-film-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Glowing red animation */
+@keyframes redPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(225, 29, 72, 0.25), 0 0 30px rgba(185, 28, 28, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(225, 29, 72, 0.45), 0 0 50px rgba(185, 28, 28, 0.25);
+  }
+}
+
+.glow-red {
+  animation: redPulse 3s infinite ease-in-out;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0d0d12;
+}
+::-webkit-scrollbar-thumb {
+  background: #272733;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #991b1b;
+}
+
+/* Print / PDF generation styles */
+@media print {
+  header,
+  nav,
+  button,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    font-family: 'Courier Prime', Courier, monospace !important;
+  }
+  .bg-[#08080a],
+  .bg-[#0c0c11],
+  .bg-[#0e0e14],
+  .bg-[#121218],
+  .bg-[#14141c] {
+    background-color: transparent !important;
+    color: #111111 !important;
+    border-color: #dddddd !important;
+  }
+  .text-neutral-100,
+  .text-neutral-200,
+  .text-neutral-300,
+  .text-neutral-400 {
+    color: #111111 !important;
+  }
+  .text-red-400,
+  .text-red-500 {
+    color: #991b1b !important;
+  }
+  .shadow-2xl,
+  .shadow-inner,
+  .shadow-sm {
+    box-shadow: none !important;
+  }
+  pre {
+    color: #111111 !important;
+  }
+}
